@@ -1,0 +1,7 @@
+src/app/.env
+*__pycache__/
+*.log
+*.cache/
+*.bash_history
+*venv
+*.sudo_as_admin_successful

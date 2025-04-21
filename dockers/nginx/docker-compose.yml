@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  nginx:
+    # Nombre que le damos al contenedor
+    container_name: flask_nginx
+
+    # Hostaname del sservidor
+    hostname: docker-local-nx-py
+    build:
+      # Obtenemos del dockerfile del directorio docker
+      context: ./docker
+
+      # Pasamos el UID por la linea de comandos al ejecutar docker-compose
+      args:
+        UID: $UserUID
+    
+    # Añadimos los volumenes de local para trabajar en el servidor
+    #  ruta_local:ruta_servidor(docker)
+    volumes:
+      - ../../src:/var/www/html
+      - ./docker/config:/home/devuser
+
+    working_dir: /var/www/html
+
+    ports:
+      - "9082:80"
+
+    # Red que va a utilizar e IP de este servidor
+    networks:
+      mynetwork:
+        ipv4_address: 172.21.0.50
+
+networks:
+  mynetwork:
+    external: true
