@@ -33,6 +33,11 @@ create_network:
 		echo "Network $(NETWORK_NAME) already exists."; \
 	fi
 
+init: start
+	@echo "Starting venv python into container..." 
+	UserUID=${U_ID} docker exec --user ${U_ID} flask_nginx chmod +x /var/www/html/init-venv.sh
+	UserUID=${U_ID} docker exec --user ${U_ID} flask_nginx bash /var/www/html/init-venv.sh
+
 # Inicia los contendores
 start: create_network
 	@echo "Starting Nginx container..." 
