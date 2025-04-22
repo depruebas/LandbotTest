@@ -36,7 +36,7 @@ Para que envie mail de verdad se tiene que añadir la configuración del SMTP en
 
 Despues de clonar el repo entrar en el directorio LandbtotTest y ejecutar:
 
-- Copiar .env.example a .env y cambiar la configuracion del mail
+- Copiar ./src/app/.env.example a ./src/app/.env y cambiar la configuracion del mail
 
 - **make init**  (este comando solo la primera vez que se instala el proyecto)
 Inicializa el entorno instalando el entorno virtual de python para el proyecto y arranca el contenedor
