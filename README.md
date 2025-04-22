@@ -80,7 +80,11 @@ El fichero config.py esta vacio pero es para centralizar las configuraciones y n
 El fichero routes.py, pues eso.
 
 El topic "sales" envia un mail se configura en .env los datos del SMTP, sino devuelve json con status=false
+
 El topoc "pricing" graba un log, no tenia un slack a mano.
+
+
+/
 
 
 
