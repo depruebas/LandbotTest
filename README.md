@@ -75,7 +75,12 @@ Esta dividido en diferentes ficheros y dirctorios para que puedan añadirse topi
 
 En el directorio controllers estan las clases de los topics y lo que tienen que hacer
 
-El fichero config.py esta vacio pero es para centralizar las configuracione su no usar os.getenv() por toda la aplicacion
+El fichero config.py esta vacio pero es para centralizar las configuraciones y no usar os.getenv() por toda la aplicacion
 
 El fichero routes.py, pues eso.
+
+El topic "sales" envia un mail se configura en .env los datos del SMTP, sino devuelve json con status=false
+El topoc "pricing" graba un log, no tenia un slack a mano.
+
+
 
