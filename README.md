@@ -4,23 +4,26 @@ El proyecto esta en un entorno dockerizado y solo probado en Linux, se puede eje
 
 Y todo se controla con un Makefile en el directorio principal
 
-Estructura del proyecto:
+Estructura del proyecto:  
 
-LandbtotTest\dockers
-            \srv
+
+
+            LandbtotTest\dockers
+                        \srv
+
 
 en el directorio dockers esta el directorio nginx que es el docker de la aplicación. Esta en un docker aparte para poder ir añadiendo entornos MySql, postgreSQL, redis, etc ..
 
 El proyecto se encuentra en src y esta realizado en Flask, es muy simple, recibe un post con este formato:
 
-{
-    "topic": "pricing",
-    "description": "Necesito ayuda con el plan empresarial"
-}
+            {
+                "topic": "pricing",
+                "description": "Necesito ayuda con el plan empresarial"
+            }
 
 a esta url:
 
-http://172.21.0.50/api/topic
+            http://172.21.0.50/api/topic
 
 Dependiendo del topic hace una cosa u otra:
 
@@ -33,23 +36,38 @@ Para que envie mail de verdad se tiene que añadir la configuración del SMTP en
 
 Despues de clonar el repo entrar en el directorio LandbtotTest y ejecutar:
 
-- make init  (este comando solo la primera vez que se instala el proyecto)
+- **make init**  (este comando solo la primera vez que se instala el proyecto)
 Inicializa el entorno instalando el entorno virtual de python para el proyecto y arranca el contenedor
 
-- make web 
-Entra dentro de el contenedor
+Esto inicializa el proyecto, comprobar que docker ha inicializado bien con **docker ps** y lanzar un POST a
 
-- make start 
-Inicia el contenedor
+            http://172.21.0.50/api/topic
 
-- make down
-Para y borra el contenedor
+con el siguiente contenido
 
-- make stop 
-Para el contenedor
+            {
+                "topic": "pricing",
+                "description": "Necesito ayuda con el plan empresarial"
+            }
 
-- make build 
-Reconstruye el contenedor, solo utilizar si se cambia el Dockerfile
+topic puede ser sales 
+
+Otros comandos para manejar el entorno.
+
+- **make web**
+(Entra dentro de el contenedor)
+
+- **make start** 
+(Inicia el contenedor)
+
+- **make down**
+(Para y borra el contenedor)
+
+- **make stop** 
+(Para el contenedor)
+
+- **make build** 
+(Reconstruye el contenedor, solo utilizar si se cambia el Dockerfile)
 
 
 # El proyecto
